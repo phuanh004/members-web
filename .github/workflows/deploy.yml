@@ -7,18 +7,17 @@ on:
 
 jobs:
     deployment:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout main branch
               uses: actions/checkout@v3
             
-            - name: Remove old files
-              uses: JesseTG/rm@v1.0.3
+            - name: Copy site to server
+              uses: garygrossgarten/github-action-scp@release
               with:
-                path: /var/www/root/public_html/**
-                
-            - name: Install new site
-              uses: canastro/copy-file-action@0.0.2
-              with:
-                source: "$GITHUB_WORKSPACE"
-                target: "/var/www/root/public_html/"
+                local: ${{ GITHUB_WORKSPACE }}
+                remote: /var/www/html/root/public_html
+                rmRemote: true
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                password: ${{ secrets.PASSWORD }}
