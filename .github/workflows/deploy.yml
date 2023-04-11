@@ -14,11 +14,16 @@ jobs:
               with:
                 path: site
             
+            - name: Remove .git tree
+              run: |
+                rm -r site/.git
+                ls -la
+
             - name: Copy site to server
               uses: garygrossgarten/github-action-scp@release
               with:
                 local: site
-                remote: /var/www/html/root/public_html
+                remote: /var/www/root/public_html
                 rmRemote: true
                 host: ${{ secrets.HOST }}
                 username: ${{ secrets.USERNAME }}
