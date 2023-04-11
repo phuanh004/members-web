@@ -11,11 +11,13 @@ jobs:
         steps:
             - name: Checkout main branch
               uses: actions/checkout@v3
+              with:
+                path: site
             
             - name: Copy site to server
               uses: garygrossgarten/github-action-scp@release
               with:
-                local: $GITHUB_WORKSPACE
+                local: site
                 remote: /var/www/html/root/public_html
                 rmRemote: true
                 host: ${{ secrets.HOST }}
