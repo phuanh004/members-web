@@ -9,11 +9,15 @@
 
     <style>
         :root {
-            --black: #0f1113;
-            --white: #dce5e5;
-            --green: #21b18c;
-            --primary-color: var(--green);
-            --secondary-color: var(--black);
+            --black: #232634;
+            --white: #DCDFE4;
+            --sapphire: #85c1dc;
+            --primary-color: var(--black);
+            --secondary-color: var(--sapphire);
+        }
+
+        html {
+            background-color: var(--primary-color);
         }
 
         body {
@@ -33,6 +37,9 @@
             flex-direction: column;
             align-items: center;
             animation: fade 2s;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            /* margin: 0.25rem; */
         }
 
         header .content {
@@ -46,23 +53,28 @@
             align-items: center;
         }
 
-        header img {
+        header h1 {
+            margin: 0;
+        }
+
+        header svg {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
+            margin: 2rem 0;
         }
 
         /* MAIN */
         main {
             padding: 2rem;
             text-align: center;
-            color: var(--black);
-            background-color: var(--white);
+            color: var(--white);
+            background-color: var(--black);
         }
 
         main h2 {
             font-size: 2rem;
             margin: 3rem 0 1rem 0;
+            color: var(--secondary-color);
         }
 
         main p {
@@ -85,6 +97,8 @@
             color: var(--primary-color);
             padding: 2rem;
             text-align: center;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
         }
 
         footer a {
@@ -100,7 +114,7 @@
 
         ul li::before {
             content: "•";
-            color: var(--primary-color);
+            color: var(--secondary-color);
             display: inline-block;
             width: 1em;
             margin-left: -1em;
@@ -172,7 +186,7 @@
                 align-items: flex-start;
             }
 
-            header img {
+            header svg {
                 margin: auto;
             }
         }
@@ -183,9 +197,16 @@
     <header>
         <div class="content">
             <h1>I'm <span>Anh<span></h1>
-            <p>Computer Science at <br>Revelle College - UC San Diego</p>
+            <p><b>Computer Science</b> at <br>Revelle College - UC San Diego</p>
         </div>
-        <img src="./../assets/anh/illu-200.png" alt="Anh Pham" width="200" height="200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm3.5 4a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0z" />
+        </svg>
+
+
+        <!-- <img loading="lazy" src="./../assets/anh/illu-200.png" alt="Anh Pham" width="200" height="200"> -->
     </header>
 
     <main>
